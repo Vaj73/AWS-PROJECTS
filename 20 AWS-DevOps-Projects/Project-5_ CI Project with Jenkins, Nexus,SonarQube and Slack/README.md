@@ -455,7 +455,7 @@ git ls-remote -h -- git@github.com:Vaj73/vprociproject.git HEAD
 
 - Go to Github repository, `Settings` -> `Webhooks` -> Add `JenkinsURL` with `/github-webhook/` at the end.
 
-![](images/github-webhook.png)
+
 
 - Next we will go to Jenkins and add below configuration to our `vprofile-ci-pipeline` jon.
 ```sh
