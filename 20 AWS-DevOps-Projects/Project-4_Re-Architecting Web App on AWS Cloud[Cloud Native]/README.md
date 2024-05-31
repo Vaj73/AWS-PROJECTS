@@ -269,7 +269,7 @@ Security policy: TLSv1
 ``` 
 - Now we can check our application from browser.
 
-![](images/app-distributed-from-cdn.png)
+
 
 ### Step-9: Clean-up
 
