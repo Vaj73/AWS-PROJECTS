@@ -99,11 +99,9 @@ git push origin ci-aws
 
 We need to have an account, from account avatar -> `My Account` -> `Security`. Generate token name as `vprofile-sonartoken`. Note the token.
 
-![](images/sonar-token.png)
-
 Next we create a project, `+` -> `Analyze Project` -> `create project manually`. Below details will be used in our Build.
 ```sh
-Organization: rumeysa-devops-projects
+Organization: Vaj73-devops-projects
 Project key: vprofile-repo-rd
 Public
 ```
@@ -117,7 +115,7 @@ We will create paramters for below variables.
 ```sh
 CODEARTIFACT_TOKEN	 SecureString	
 HOST      https://sonarcloud.io
-ORGANIZATION           rumeysa-devops-projects
+ORGANIZATION           Vaj73-devops-projects
 PROJECT                vprofile-repo-rd
 SONARTOKEN             SecureString
 ```
@@ -256,7 +254,7 @@ sudo -i
 yum install mysql git -y
 mysql -h <RDS_endpoint> -u <RDS_username> -p<RDS_password>
 show databases;
-git clone https://github.com/rumeysakdogan/vprofileproject-all.git
+git clone https://github.com/Vaj73/vprofileproject-all.git
 cd vprofileproject-all/
 git checkout cd-aws
 cd src/main/resources
