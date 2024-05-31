@@ -227,7 +227,6 @@ branch: */cicd-jenbean-prod
 
 Let's run the pipeline. Ok, it failed with below error message. Right click on blue error and Open in new tab we need to approve it.
 
-![](images/approve-reject-err.png)
 
 Since we are running this pipeline from another pipeline it asks this Approval. 
 
