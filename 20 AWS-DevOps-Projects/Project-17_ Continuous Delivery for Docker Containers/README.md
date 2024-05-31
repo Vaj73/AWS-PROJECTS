@@ -127,7 +127,6 @@ We can run `kubectl` command to check if our cluster is ready.
 kubectl get nodes
 ```
 
-![](images/cluster-ready.png)
 
 ### Step-6: Git repo setup
 
