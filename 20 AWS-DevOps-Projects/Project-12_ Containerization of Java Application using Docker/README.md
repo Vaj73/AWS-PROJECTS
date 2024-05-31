@@ -101,7 +101,7 @@ Create an `db` directory under `Docker-files` directory. Copy the below content 
 ```sh
 FROM mysql:5.7.25
 LABEL "Project"="Vprofile"
-LABEL "Author"="Rumeysa"
+LABEL "Author"="Vaj73"
 ENV MYSQL_ROOT_PASSWORD="vprodbpass"
 ENV MYSQL_DATABASE="accounts"
 ADD db_backup.sql /docker-entrypoint-initdb.d/db_backup.sql
