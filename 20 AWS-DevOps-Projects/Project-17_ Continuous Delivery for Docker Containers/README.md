@@ -54,7 +54,6 @@ We need to add our DockerHub credentials to Jenkins.( _PS: If you don't have an 
 
 Go to `Manage Jenkins` -> `Manage Credentials` -> `Add credentials`. As ID we will give `dockerhub` which is used in Jenkinsfile.
 
-![](images/dockerhub-creds.png)
 
 #### Install Docker engine in Jenkins server
 
