@@ -80,7 +80,7 @@ docker push <your_dockerhub_account_name>/phonebook-webserver
 docker push <your_dockerhub_account_name>/phonebook-resultserver
 ``` 
 
-![](images/images-pushed.png)
+
 
 ### Step-5: Change image names 
 
@@ -89,7 +89,7 @@ Go to `resultserver_deployment.yml` change image name to you have pushed to Dock
  spec:
       containers:
         - name: result-app
-          image: rumeysakdogan/phonebook-resultserver 
+          image: Vaj73/phonebook-resultserver 
 ```
 
 Go to `webserver_deployment.yml` change image name to you have pushed to DockerHub
@@ -97,7 +97,7 @@ Go to `webserver_deployment.yml` change image name to you have pushed to DockerH
  spec:
       containers:
         - name: result-app
-          image: rumeysakdogan/phonebook-webserver 
+          image: Vaj73/phonebook-webserver 
 ```
 
 ### Step-6: Create secret/configMap
@@ -157,8 +157,8 @@ Check your application from browser with below urls:
 
 * Webserver: <worker_node_public_ip>:30001
 
-![](images/phonebook-web-server.png)
+
 
 * Resultserver: <worker_node_public_ip>:30002
 
-![](images/phonebook-resullt-server.png)
+
