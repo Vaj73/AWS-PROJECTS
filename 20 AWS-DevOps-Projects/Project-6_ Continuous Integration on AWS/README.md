@@ -145,7 +145,6 @@ We need to add a policy to the service role created for this Build project. Find
 
 It is time to Build our project.
 
-![](images/sonarbuild-successful.png)
 
 We can check from SonarCloud too.
 
