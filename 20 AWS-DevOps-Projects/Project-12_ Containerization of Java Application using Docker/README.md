@@ -73,7 +73,7 @@ docker images
 
 I will use IntelliJ (any IDE is fine) while creating my images. First I will clone the repository in the same directory that I have created my Vagrantfile, this will give me chance to quickly test Docker images that I will create for my application services.
 
-![](images/clone-project.png)
+
 
 Next checkout the branch `docker`. You will see there is `Docker-files` directory, we will create our images under this directory. 
 
@@ -86,7 +86,7 @@ Create an `app` directory under `Docker-files` directory. Copy the below content
 ```sh
 FROM tomcat:8-jre11
 LABEL "Project"="Vprofile"
-LABEL "Author"="Rumeysa"
+LABEL "Author"="Vaj73"
 RUN rm -rf /usr/local/tomcat/webapps/*
 COPY target/vprofile-v2.war /usr/local/tomcat/webapps/ROOT.war
 EXPOSE 8080
@@ -116,7 +116,7 @@ Create an `web` directory under `Docker-files` directory. Copy the below content
 ```sh
 FROM nginx
 LABEL "Project"="Vprofile"
-LABEL "Author"="Rumeysa"
+LABEL "Author"="Vaj73"
 RUN rm -rf /etc/nginx/conf.d/default.conf
 COPY nginxvproapp.conf /etc/nginx/conf.d/vproapp.conf
 ```
@@ -296,4 +296,3 @@ docker push <dockerhub_username>/vprofileweb:V1
 
 We can check in our DockerHub account from browser.
 
-![](images/images-pushed-to-dockerHub.png)
