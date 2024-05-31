@@ -50,7 +50,6 @@ Name: kubeapp.aws-devops-journey-of-Vaj73.net
 
 Then we will create 4 NS values to our Registered domain as `NS Record`.
 
-![](img/route53-record.png)
 
 ### Step-5: Login Ec2 and configure awscli
 
@@ -79,13 +78,12 @@ kubectl version --client
 Next we  need to verify domain we have created in Route53.
 
 
-
 Now we will run kops command which will create kops cluster.(_Note: Don't forget to replace your domain name and s3 bucket name in the command._) Below command won't create cluster, it will create configuration of cluster.
 ```sh
 kops create cluster --name=kubeapp.aws-devops-journey-of-Vaj73.net \
 --state=s3://kubeapp-kops-state --zones=us-east-1a,us-east-1b \
 --node-count=1 --node-size=t3.small --master-size=t3.medium \
---dns-zone=kubeapp.aws-devops-journey-of-rumeysadogan.net \
+--dns-zone=kubeapp.aws-devops-journey-of-Vaj73.net \
 --node-volume-size=8 --master-volume-size=8
 ```
 
@@ -102,7 +100,6 @@ After issuing thsi command, wait 10-15 minutes before validating the cluster wit
 kops validate cluster --state=s3://kubeapp-kops-state
 ```
 
-![](img/validate-cluster.png)
 
 ### Step-7: Create Volume for DB Pod
 
