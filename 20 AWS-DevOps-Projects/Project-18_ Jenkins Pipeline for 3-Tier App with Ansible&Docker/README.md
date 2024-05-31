@@ -26,8 +26,6 @@ terraform apply
 
 We will create a private repository in GitHub to store source code files.
 
-![](images/github-repo.png)
-
 Then to be able to access this repo from Jenkins, we will create an access token from GitHub.
 
 Go to your GitHub avatar, click `settings` -> `Developer Settings` -> `Personal Access Tokens` -> Create new token and copy it to somewhere.We will need this token later.
@@ -38,7 +36,7 @@ Go to your GitHub avatar, click `settings` -> `Developer Settings` -> `Personal 
 
 We will SSH into jenkins server, I will use VS Code Remote SSH plugin to connect Jenkins. Once we are connected, we will clone our newly created repo to this server by using TOKEN we have just created.  
 ```sh
-git clone https://<replace_with_your_token>@https://github.com/rumeysakdogan/rd-todo-app.git
+git clone https://<replace_with_your_token>@https://github.com/Vaj73/rd-todo-app.git
 ```
 
 Next we will copy `nodejs`, `react` and `postgresql` folders given under `todo-app` directory to our repo. Since I am using remote SSH extension, I will drag/drop the files to my VS Code.You can copy the files under `todo-app` in your local and push it to GitHub as well.
@@ -302,8 +300,8 @@ We will create a playbook `docker_project.yml` to configure 3 app servers with A
   become: true
   vars:
     postgre_container: /home/ec2-user/postgresql
-    container_name: rumeysa_postgre
-    image_name: <your_AWS_account_number>.dkr.ecr.us-east-1.amazonaws.com/rumeysa-repo/todo-app:postgr
+    container_name: Vaj73_postgre
+    image_name: <your_AWS_account_number>.dkr.ecr.us-east-1.amazonaws.com/Vaj73-repo/todo-app:postgr
   tasks:
     - name: remove {{ container_name }} container and {{ image_name }} if exists
       shell: "docker ps -q --filter 'name={{ container_name }}' && docker stop {{ container_name }} && docker rm -fv {{ container_name }} && docker image rm -f {{ image_name }} || echo 'Not Found'"
@@ -325,8 +323,8 @@ We will create a playbook `docker_project.yml` to configure 3 app servers with A
   become: true
   vars:
     container_path: /home/ec2-user/nodejs
-    container_name: rumeysa_nodejs
-    image_name: <your_AWS_account_number>.dkr.ecr.us-east-1.amazonaws.com/rumeysa-repo/todo-app:nodejs
+    container_name: Vaj73_nodejs
+    image_name: <your_AWS_account_number>.dkr.ecr.us-east-1.amazonaws.com/Vaj73-repo/todo-app:nodejs
   tasks:
     - name: remove {{ container_name }} container and {{ image_name }} if exists
       shell: "docker ps -q --filter 'name={{ container_name }}' && docker stop {{ container_name }} && docker rm -fv {{ container_name }} && docker image rm -f {{ image_name }} || echo 'Not Found'"
@@ -344,8 +342,8 @@ We will create a playbook `docker_project.yml` to configure 3 app servers with A
   become: true
   vars:
     container_path: /home/ec2-user/react
-    container_name: rumeysa_react
-    image_name: <your_AWS_account_number>.dkr.ecr.us-east-1.amazonaws.com/rumeysa-repo/todo-app:react
+    container_name: Vaj73_react
+    image_name: <your_AWS_account_number>.dkr.ecr.us-east-1.amazonaws.com/Vaj73-repo/todo-app:react
   tasks:
     - name: remove {{ container_name }} container and {{ image_name }} image if exists
       shell: "docker ps -q --filter 'name={{ container_name }}' && docker stop {{ container_name }} && docker rm -fv {{ container_name }} && docker image rm -f {{ image_name }} || echo 'Not Found'"
@@ -366,7 +364,7 @@ We will create `node-env-template` under repository which will be used by Jenkin
 SERVER_PORT=5000
 DB_USER=postgres
 DB_PASSWORD=Pp123456789
-DB_NAME=rumeysatodo
+DB_NAME=Vaj73todo
 DB_HOST=${DB_HOST}
 DB_PORT=5432
 ```
@@ -453,15 +451,12 @@ Path: Jenkinsfile
 
 It is time to test our pipeline. Click `Build Job`.We can check resources from AWS Console. Our nodes for 3-tier of application is created.
 
-![](images/nodes-created-by-terraform-with-pipeline.png)
 
 ECR repository is created, Docker images created and pushed to ECR repo.
 
-![](images/ecr-repo-and-images.png)
 
 Now we can test our application from browser. Get public IP of react server and type `http://<public_IP_of_react_server>:3000`
 
-![](images/react-running.png)
 
 We can also check our nodejs server which is used as backend. Check `http://<public_IP_of_nodejs_server>:5000/todos` from browser.
 
