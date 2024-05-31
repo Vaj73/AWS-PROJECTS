@@ -649,7 +649,7 @@ name: slacktoken
 description: slacktoken
 ```
 
-![](images/slack-connection-successful.png)
+
 
 - We will add below part to our Jenkinsfile in the same level with stages and push our changes.
 ```sh
