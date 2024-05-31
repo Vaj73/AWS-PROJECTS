@@ -99,7 +99,6 @@ git push origin ci-aws
 
 We need to have an account, from account avatar -> `My Account` -> `Security`. Generate token name as `vprofile-sonartoken`. Note the token.
 
-![](images/sonar-token.png)
 
 Next we create a project, `+` -> `Analyze Project` -> `create project manually`. Below details will be used in our Build.
 ```sh
