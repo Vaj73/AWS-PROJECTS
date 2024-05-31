@@ -12,17 +12,6 @@
 * GitHub account
 * Slack account
 
-_Friendly reminders:_
-
-* I have completed these projects under my "20 Days 20 DevOps Projects" challenge.
-* Projects named as Project-1 thru Project-20 as part of this challenge
-* I have been using same Jenkins, Nexus and SonarQube servers from Project-5 and kops server from Project-14.
-* This project cannot be completed without having same setup. 
-* Make sure you configure jenkins credentials, global tool and system with same credential names used in Jenkinsfile.
-* Make sure you have necessary tools installed as mentioned in previous projects.
-* You may need to update Sonar webhook and Github webhook with new url.
-* You may need new Token for integrations.
-GOOD LUCK!
 
 ### Step-1: Jenkins, Sonar and Docker Integration
 
@@ -102,17 +91,17 @@ Next we will create our kubernetes cluster from `kops` instance. Lets SSH into k
 
 Now we will run kops command which will create kops cluster.(_Note: Don't forget to replace your domain name and s3 bucket name in the command._) Below command won't create cluster, it will create configuration of cluster.
 ```sh
-kops create cluster --name=kubevpro.aws-devops-journey-of-rumeysadogan.net \
+kops create cluster --name=kubevpro.aws-devops-journey-of-Vaj73.net \
 --state=s3://vpro-kops-state-rd --zones=us-east-1a,us-east-1b \
 --node-count=2 --node-size=t3.small --master-size=t3.medium \
---dns-zone=kubevpro.aws-devops-journey-of-rumeysadogan.net \
+--dns-zone=kubevpro.aws-devops-journey-of-Vaj73.net \
 --node-volume-size=8 --master-volume-size=8
 ```
 
 We can create cluster with below command, we need to specify the s3 bucket we use for state config.
 
 ```sh
-kops update cluster --name kubevpro.aws-devops-journey-of-rumeysadogan.net --state=s3://vpro-kops-state-rd --yes --admin
+kops update cluster --name kubevpro.aws-devops-journey-of-Vaj73.net --state=s3://vpro-kops-state-rd --yes --admin
 ```
 
 It will take sometime to create cluster.  We can install `helm` as next step.
@@ -146,7 +135,7 @@ kubectl get nodes
 We will create a GitHub repository with the name of `cicd-kube-docker`.
 then we will clone it to our kops instance.
 ```sh
-git clone https://github.com/rumeysakdogan/cicd-kube-docker.git
+git clone https://github.com/Vaj73/cicd-kube-docker.git
 ```
 
 We will also clone the source code repository that we will be using a lot.
@@ -222,7 +211,6 @@ git commit -m "adding helm charts"
 git push
 ```
 
-![](images/files-pushed-to-github.png)
 
 ### Step-8: Writing pipeline Code
 
@@ -276,7 +264,7 @@ Create a new job in Jenkins with name of `kube-cicd` with type of Pipeline.
 ```sh
 Pipeline Definition: Pipeline script from SCM
 SCM: Git
-Repository URL: https://github.com/rumeysakdogan/cicd-kube-docker.git
+Repository URL: https://github.com/Vaj73/cicd-kube-docker.git
 branch: */master
 Script Path: Jenkinsfile-rd
 ```
@@ -306,8 +294,6 @@ We can get the LoadBalancer url and check application from browser.
 
 Lets check DockerHub repo for images:
 
-![](images/dockerhub-imgs-pushed.png)
-
 We also get slack notification as Success:
 
 ![](images/slack-notification.png)
@@ -316,7 +302,7 @@ We also get slack notification as Success:
 
 We can delete our cluster with below command:
 ```sh
-kops delete cluster --name kubevpro.aws-devops-journey-of-rumeysadogan.net --state=s3://vpro-kops-state-rd --yes
+kops delete cluster --name kubevpro.aws-devops-journey-of-Vaj73.net --state=s3://vpro-kops-state-rd --yes
 ```
 
 Then stop/terminate instances used during this project.
