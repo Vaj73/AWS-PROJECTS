@@ -16,7 +16,6 @@
 We will create a repo in GitHub and name it as `terraform-aws-vprofile`.
 You can make it private not to expose any Access keys you are using, since my AWS credentials are configured with awscli, I will create thsi repo as public.
 
-![](images/repo-created.png)
 
 ### Step-2: Clone the repo to your local
 
@@ -71,7 +70,6 @@ Create `vars.tf` file and `providers.tf` file as in given under `terraform-files
 
 We will create an SSH key with name of `vprofilekey` as we mentioned in `vars.tf` file. Go to `terraform-aws-vprofile` directory, run below command:
 
-![](images/ssh-keygen.png)
 
 Now we can create `keypairs.tf` file with below content. We will use `file` function to get the content from path instead of copy-pasting whole content.
 
@@ -181,7 +179,7 @@ terraform apply
 
 Clone repository to from bewlo repository, we need to do some updates in `application.properties` file.
 ```sh
-git clone -b vp-rem https://github.com/rumeysakdogan/vprofileproject-all.git
+git clone -b vp-rem https://github.com/Vaj73/vprofileproject-all.git
 ```
 We will update below parts in that file.
 Replace db01 -> RDS endpoint
