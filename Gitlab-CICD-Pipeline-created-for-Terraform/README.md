@@ -19,7 +19,6 @@ aws s3api create-bucket --bucket <bucket-name> --region us-east-1
 ```
 - We can run `aws s3 ls` to make sure our bucket created succesfully.
 
-![](images/s3-backend.png)
 
 - Next in `backend.tf` file, update your bucketname.
 
@@ -66,7 +65,6 @@ Generate a new one and provide in Gitlab screen.
 
 - Once you have authenticated Gitlab, you may see your repository named `terraform-cicd`. Click `Connect`.
 
-![](images/find-your-github-repo.png)
 
 ## Setting Environment Variables for GitLab
 
