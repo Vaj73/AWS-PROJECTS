@@ -99,7 +99,6 @@ Generate a new one and provide in Gitlab screen.
 
 - First check your tfstate file is stored in S3 bucket you created.
 
-![](images/s3-storing-our-statefile.png)
 
 - Next we can check our VPC and subnets.
 ![](images/vpc-created.png)
